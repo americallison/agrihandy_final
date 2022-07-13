@@ -1,0 +1,22 @@
+{% extends 'layout1.html' %}
+
+{% block page_content %}
+<div class="container mt-4">
+    <h1 class="h1 text-center">USSD Codes</h1><hr>
+    <h4>Farmers</h4><hr>
+    <ul>
+        <li><h5>Farmer's Registration: <span class="text-danger">*371*1#</span></h5></li>
+        <li><h5>Farmer's Login: <span class="text-success">*371*2#</span></h5></li>
+       <li><h5>Post Product: <span class="text-primary">*371*3#</span></h5></li><hr>
+    </ul>
+     <h4>Consumers</h4><hr>
+    <ul>
+        <li><h5>Consumer's Registration: <span class="text-danger">*372*1#</span></h5></li>
+        <li><h5>Consumer's Login: <span class="text-success">*372*2#</span></h5></li>
+       <li><h5>View Products: <span class="text-primary">*372*3*1#</span></h5></li>
+        <li><h5>Add Products to Bag: <span class="text-secondary">*372*3*2#</span></h5></li>
+    </ul>
+</div>
+
+
+{% endblock %}

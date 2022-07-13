@@ -1,0 +1,38 @@
+{% extends 'layout1.html' %}
+
+{% block page_content %}
+<div class="container mt-4">
+    <h1 class="h1 text-center">Prevailing Market Prices</h1><hr>
+   <table class="table">
+	   <caption class="text-danger">
+		   <strong>Current Exchange Rate (CBL) - $L150.00 = $US1.00</strong></caption>
+						    <thead class="thead-primary">
+						      <tr class="text-center">
+						        <th>Product name</th>
+                                  <th>Unit of Measure</th>
+						        <th>Price Range</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						      <tr class="text-center">
+                                  <td>Pepper</td>
+                                  <td>bag (25 kg)</td>
+                                  <td>$2700.00&nbsp; - &nbsp;$3000.00</td>
+                              </tr>
+							<tr class="text-center">
+                                  <td>Watermelon</td>
+                                  <td>bag (25 kg)</td>
+                                  <td>$1600.00&nbsp; - &nbsp;$1750.00</td>
+                              </tr>
+							<tr class="text-center">
+                                  <td>Onion</td>
+                                  <td>bag (10 kg)</td>
+                                  <td>$1500.00&nbsp; - &nbsp;$1600.00</td>
+                              </tr>
+							</tbody>
+   </table>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layout1.html" %}
+{% block title %}Register{% endblock %}
+
+<!--The registration form below registers users and add them to the database.
+    The form is particularly for customers. Registration done with this form
+    will give users the privilege to order goods and services.-->
+{% block page_content %}
+{% from 'bootstrap4/form.html' import render_form_row, render_field, render_hidden_errors %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+<div class="shadow-lg p-4 bg-muted mt-5 rounded">
+<form action="{{ url_for('auth.register') }}"
+      method="POST" enctype="multipart/form-data">
+    <h4 class="h4 text-center card-header mb-4"><i class="fa fa-user-circle"></i>&nbsp;Register</h4>
+    {{ form.hidden_tag() }}
+    <strong>{{ render_hidden_errors(form) }}</strong>
+    <strong>{{ render_form_row([form.first_name, form.last_name]) }}</strong>
+    <strong>{{ render_form_row([form.email, form.user_name]) }}</strong>
+    <strong>{{ render_form_row([form.password, form.confirm_password]) }}</strong>
+    {{ render_field(form.terms_conditions) }}
+    <p><a href="{{ url_for('main.terms_con')}}">
+        [&nbsp;Read terms and conditions&nbsp;]</a></p>
+    <strong>{{ render_field(form.submit_info, class="btn btn-lg text-light mt-2 mb-3 bg-dark") }}</strong>
+
+</form><hr>
+<p>Already have an account?
+    <strong><a class="text-primary" href="{{url_for('auth.login') }}">
+        <i class="fa fa-sign-in"></i>&nbsp;Sign In</a>
+    </strong></p>
+</div>
+</div>
+    <div class="col-md-2"></div>
+</div>
+</div>
+{% endblock %}

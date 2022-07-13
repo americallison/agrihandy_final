@@ -1,0 +1,94 @@
+{% extends "layout1.html" %}
+
+{% block page_content %}
+<!--<div class="hero-wrap hero-bread" style="height:50px; background-image: url('static/images/bg_1.jpg');">-->
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 mt-5 ftco-animate text-center">
+            <h3 class="mb-0 bread">Search Results&nbsp;<i class="fa fa-search"></i></h3><hr>
+          </div>
+        </div>
+      </div>
+
+
+<section class="ftco-section">
+<div class="container">
+			 <div class="col-lg-1"></div>
+                <div class="col-lg-10 col-md-12 col-12"></div>
+    		<div class="row">
+				{% for product in product.items %}
+    			<div class="col-md-6 col-6 col-lg-3 ftco-animate">
+    				<div class="product">
+    					<a href="{{ url_for('main.product_details', product_id=product.id)}}"
+						   class="img-prod">
+							<img src="{{ url_for('static', filename='products_imgs/'+product.product_img) }}"
+								 width=280 height=180 alt="agriproduct">
+    						<span class="status">
+                                    {% if product.discount > 0 %}
+                                    <small class="sale">{{ product.discount }}%&nbsp;discount</small>
+                                    {% else %}
+
+                                    {% endif %}
+							</span>
+    						<div class="overlay"></div>
+    					</a>
+    					<div class="text py-3 pb-4 px-3 text-center">
+    						<h3><a href="#"></a>{{ product.product_name | title }}</h3>
+									<span class="text-success">${{ product.unit_price }}</span>
+	    					<div class="d-flex px-3">
+	    						<div class="m-auto d-flex">
+	    							<a href="{{ url_for('main.product_details', product_id=product.id)}}"
+									   class="d-flex text-secondary text-center">
+										<span><small><i class="fa fa-eye"></i>&nbsp;See details</small></span>
+	    							</a>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+			{% endfor %}
+				  </div>
+        </div>
+</section>
+
+<hr>
+<div class="text-center">
+    <a href="{{ url_for('main.product_search', page=product.prev_num) }}"
+       class="btn btn-sm btn-outline-success
+       {% if product.page == 1 %}disabled{% endif %}">
+        &laquo;
+    </a>
+
+{% for page_number in product.iter_pages() %}
+        {% if page_number %}
+
+        <div class="d-md-inline text-center d-inline d-lg-inline mb-2 ml-auto">
+            {% if product.page == page_number %}
+            <a href="{{ url_for('main.product_search', page=page_number) }}"
+               class="btn btn-success">
+                {{ page_number }}
+            </a>
+            {% else %}
+            <a href="{{ url_for('main.product_search', page=page_number) }}"
+               class="btn btn-outline-success btn-sm">
+                {{ page_number }}
+            </a>
+            {% endif %}
+        {% else %}
+            ...
+        {% endif %}
+    {% endfor %}
+    <a href="{{ url_for('main.product_search', page=product.next_num) }}"
+       class="btn btn-outline-success btn-sm
+       {% if product.page == product.pages %}disabled{% endif %}">
+        &raquo;
+    </a>
+</div>
+</div>
+<p class="text-center mt-3">
+   Showing page {{ product.page }} of {{ product.pages }}
+</p>
+
+
+
+{% endblock %}

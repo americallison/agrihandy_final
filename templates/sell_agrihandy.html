@@ -1,0 +1,45 @@
+{% extends "farmer_layout.html" %}
+{% block title %}Sell on AgriHandy{% endblock %}
+
+{% block page_content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h3 class="h3 text-center mt-4">Steps to sell on AgriHandy</h3><hr>
+            <ul>
+                <li><h5 class="h5 text-success"><i class="fa fa-user"></i>&nbsp;
+                    <a href="{{ url_for('auth_farmer.register')}}">Register</a> a Farmer Account on AgriHandy
+                    <small class="text-secondary">(Business details, Orange Money number)</small></h5></li>
+                <li><h5 class="h5 text-success"><i class="fa fa-sign-in"></i>&nbsp;
+                    Login and post your products on AgriHandy<small class="text-secondary">
+                        (Include product name, description, price, unit of measure (eg. bag, bucket, etc.),
+                        contact number, product location and other related details.)</small></h5></li>
+                 <li><h5 class="h5 text-success"><i class="fa fa-truck"></i>&nbsp;
+                     After a buyer orders your product, you can
+                     transport products using AgriHandy delivery service.
+                 <small class="text-secondary">
+                        (Timely and efficient delivery is highly guaranteed with AgriHandy
+                     delivery service.)</small></h5></li>
+                <li><h5 class="h5 text-success"><i class="fa fa-money"></i>&nbsp;
+                     Receive payment through Orange Money. <small class="text-secondary">
+                        (Your funds are transferred to your Orange Money
+                        account right after the customer receives the products).</small></h5></li>
+            </ul>
+        </div>
+        <div class="col-md-2 mt-4 card">
+            <h6 class="container text-info">Note:</h6>
+            <ul>
+            <li>Registration is free</li>
+                <li>After a month from registration,
+                a membership fee of $300.00 will be paid
+                per month.</li>
+                <li>AgriHandy will have a 2% commission
+                on every sale made by a farmer.</li>
+        </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

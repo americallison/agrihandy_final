@@ -1,0 +1,41 @@
+{% extends 'farmer_layout.html' %}
+
+{% block page_content %}
+
+ <div class="hero-wrap hero-bread"
+      style="background-image: url('{{ url_for('static', filename='auth_farmer_/bg_21.jpg')}}');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="{{ url_for('main.index')}}">Home</a></span>
+                <span>Farmer's Path</span></p>
+            <h1 class="mb-0 bread">Thanks for trading with AgriHandy</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <div class="card p-3">
+                <a class="btn bg-info p-4 text-white" href="{{url_for('main.add_product')}}">
+                    <i class="fa fa-plus"></i>&nbsp;Add Product</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card p-3">
+                <a class="btn p-4 bg-info text-white" href="{{url_for('main.my_products_list')}}">
+                    <i class="fa fa-user"></i>&nbsp;My Product (s)</a>
+            </div>
+        </div>
+         <div class="col-md-2"></div>
+    </div>
+</div>
+
+
+
+{% endblock %}

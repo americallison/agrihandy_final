@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}
+
+    <title>{% block title %} {% endblock %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Metas -->
+    <title>AgriHandy - Agriculture Ecommerce</title>
+    <meta name="keywords" content="agriculture, market, ecommerce">
+    <meta name="description" content="">
+    <meta name="author" content="Americ Allison">
+
+    <!-- Site Icons -->
+
+
+    <!-- Bootstrap CSS -->
+     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+           rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/open-iconic-bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/aos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.timepicker.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/icomoon.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    {% endblock %}
+</head>
+
+<!--Start top nav -->
+<body style="font-family:Dosis" class="goto-here">
+		<div class="p-3 bg-dark">
+    	<div class="container">
+    		<div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+	    		<div class="col-lg-12 d-block">
+		    		<div class="row d-flex">
+					    <div class="col-md pr-4 d-flex topper align-items-center text-lg-center">
+                            <span class="text"><i class="fa fa-truck"></i>
+                                &nbsp;Delivery in 3-5 business days &amp; refunds</span>
+					    </div>
+                        <div class="col-md pr-4 d-flex topper align-items-center text-lg-center">
+                            <span class="text"><i class="fa fa-money"></i>
+                                &nbsp;Enjoy up to 5% discount on purchases</span>
+					    </div>
+                        {% if current_user.is_anonymous %}
+                        <div class="col-md pr-4 d-flex topper align-items-center text-lg-center">
+                            <span class="text"><i class="fa fa-user"></i>
+                                &nbsp;<a class="text-white"
+                                         href="{{ url_for('auth.register')}}">Register for free</a></span>
+					    </div>
+                        {% else %}
+                        {% endif %}
+
+                        <!-- Google Translate div -->
+                     <div id="google_translate_element"></div>
+                        <!-- End Google Translate -->
+
+
+				    </div>
+			    </div>
+		    </div>
+		  </div>
+    </div>
+        <!-- End top nav -->
+
+        <!-- Start main nav -->
+    <nav class="navbar navbar-expand-lg shadow-sm ftco_navbar ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand text-dark" href="{{url_for('main.index')}}">
+              <img src="{{url_for('static', filename='agrihandy_pic.png')}}"
+                    height=60 width=100>
+          </a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                  aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav mt-2 ml-auto">
+	          <li class="nav-item active"><a href="{{url_for('main.index')}}" class="nav-link">
+                  <i class="fa fa-home"></i>&nbsp;Home</a></li>
+	          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"
+                 href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-shopping-basket"></i>&nbsp;Market</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item" href="{{ url_for('main.show_products')}}">
+                    <i class="fa fa-shopping-cart"></i>&nbsp;Visit Market</a>
+              	<a class="dropdown-item" href="{{ url_for('main.my_cart')}}">
+                    <i class="fa fa-shopping-bag"></i>&nbsp;My Bag</a>
+              </div>
+            </li>
+                <li class="nav-item"><a href="{{ url_for('auth_farmer.index')}}"
+                                        class="nav-link">
+                    <i class="fa fa-users"></i>&nbsp;Farmer's Path</a></li>
+	          <li class="nav-item"><a href="{{ url_for('main.contact')}}" class="nav-link">
+                  <i class="fa fa-phone"></i>&nbsp;Contact</a></li>
+                {% if current_user.is_anonymous %}
+                {% else %}
+	          <li class="nav-item cta cta-colored"><a href="{{ url_for('main.my_cart')}}"
+                                                      class="nav-link"><i class="fa fa-shopping-bag"></i>
+              My Bag[{{ cart_length }}]</a></li>
+                {% endif %}
+
+
+                <li class="nav-item text">
+                                {% if current_user.is_anonymous %}
+                        <a class="nav-link" href="{{ url_for('auth.login') }}">
+                            &nbsp;<span class="text-dark"><i class="fa fa-sign-in"></i></span>
+                        Login</a>
+                                {% else %}
+                        <a class="nav-link" href="{{ url_for('auth.logout') }}">
+                            Logout&nbsp;<span class="text-dark"><i class="fa fa-sign-out"></i>
+                        </span><span class="text-info">[{{current_user.first_name}}]</span></a>
+                                {% endif %}
+                        </li>
+                    <!-- Start Search -->
+                <li class="nav-item">
+                <form action="{{ url_for('main.product_search') }}" class="search-form btn-outline-dark">
+                <div class="form-group">
+                  <span class="icon ion-ios-search"></span>
+                  <input type="text" name='query' class="nav-link form-control"
+                         style="color:#40360c; margin-top:5px" autofocus="autofocus"
+                         placeholder="Search product...">
+                </div>
+              </form>
+                </li>
+                    <!-- End Search -->
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- End main nav -->
+
+    <!--Create content block for contents-->
+        {% block content %}
+        {% from 'bootstrap4/utils.html' import render_messages %}
+        <div class="container-fluid text-center">
+            {{ render_messages() }}
+        </div>
+
+        <!--Create and end page_content block for main contents-->
+        {% block page_content %}{% endblock %}
+        <!--End content block-->
+        {% endblock %}
+         <hr>
+
+        <!-- Start newsletter -->
+		<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+      <div class="container py-4">
+        <div class="row d-flex justify-content-center py-5">
+          <div class="col-md-6">
+          	<h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
+          	<span>Get e-mail updates about our latest shops and special offers</span>
+          </div>
+          <div class="col-md-6 d-flex align-items-center">
+            <form action="#" class="subscribe-form">
+              <div class="form-group d-flex">
+                <input type="text" class="form-control" placeholder="Enter email address">
+                <input type="submit" value="Subscribe" class="submit px-3">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- End newsletter -->
+
+        <!-- Start footer -->
+    <footer style="font-family:Dosis" class="ftco-footer ftco-section">
+      <div class="container">
+      	<div class="row">
+      		<div class="mouse">
+						<a href="#" class="mouse-icon">
+							<div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
+						</a>
+					</div>
+      	</div>
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+                <h2 class="ftco-heading-2 text-success text-md-center text-left">
+                    <strong>AgriHandy</strong></h2><hr>
+                            <p class="text-left text-md-center">AgriHandy is here to help
+                                farmers increase their revenue and improve their
+                            livelihoods from timely marketing and sales of their agricultural produce.
+							Start selling with AgriHandy today and experience some fast sales turnover
+                            of your products. Agriculture is the entry to Liberia's development. We are here
+                            to do this together.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-left mt-5">
+                <li class="ftco-animate"><a href="https://web.facebook.com/AgriHandy-103513749093755">
+                    <span class="icon-facebook"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-1">
+                <h2 class="ftco-heading-2 text-success text-left text-md-center">
+                    <strong>Useful Links</strong></h2><hr>
+              <ul class="list-unstyled text-left text-md-center">
+                <li><a href="{{ url_for('main.show_products')}}" class="py-2 d-block">
+                    <span class="fa fa-shopping-basket"></span>&nbsp;&nbsp;&nbsp;&nbsp;Market</a></li>
+                <li><a href="{{ url_for('main.about')}}" class="py-2 d-block">
+                    <span class="fa fa-info-circle"></span>&nbsp;&nbsp;&nbsp;&nbsp;About AgriHandy</a></li>
+                <li class="py-2 d-block"><span class="fa fa-phone"></span><a href="{{ url_for('main.contact')}}" >
+                    &nbsp;&nbsp;&nbsp;&nbsp;Contact Us</a></li>
+                  <li><a href="{{ url_for('main.ussd')}}" class="py-2 d-block">
+                    <span class="fa fa-info-circle"></span>&nbsp;&nbsp;&nbsp;&nbsp;USSD Codes</a></li>
+                  {% if current_user.is_anonymous %}
+                  {% else %}
+                  <li><a href="{{ url_for('main.account')}}" class="py-2 d-block">
+                    <span class="fa fa-user-circle"></span>&nbsp;&nbsp;&nbsp;&nbsp;Account Details</a></li>
+                  {% endif %}
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2 text-left text-success text-md-center mr-md-2"><strong>Help
+              </strong></h2><hr>
+
+	              <ul class="list-unstyled text-left text-md-center mr-2-5 pr-l-3 mr-4">
+                      <li><a href="#" class="py-2 d-block">
+                          <i class="fa fa-truck"></i>&nbsp;&nbsp;&nbsp;&nbsp;Delivery Information</a></li>
+	                <li><a href="#" class="py-2 d-block">
+                        <i class="fa fa-money"></i>&nbsp;&nbsp;&nbsp;&nbsp;Returns &amp; Exchange</a></li>
+	                <li><a href="{{ url_for('main.terms_con')}}"
+                                           class="py-2 d-block"><span class="fa fa-cogs"></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;Terms &amp; Conditions</a></li>
+	                <li><a href="#" class="py-2 d-block">
+                        <span class="fa fa-shield"></span>&nbsp;&nbsp;&nbsp;&nbsp;Privacy Policy</a></li>
+	                <li><a href="{{ url_for('main.faq')}}" class="py-2 d-block"><span class="fa fa-question"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        FAQs</a></li>
+	              </ul>
+	            </div>
+
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2 text-success text-left text-md-center">
+                    <strong>Have a Questions?</strong></h2><hr>
+            	<div class="block-23 mb-3">
+	              <ul class="list-unstyled ml-md-5 text-left text-md-center">
+	                <li>
+                        <a href="https://en.wikipedia.org/wiki/Suakoko_District" target="_blank">
+                            <span class="fa fa-map-marker mb-2"></span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;Suakoko, Bong County, Liberia</a></li>
+	                <li><a href="#">
+                        <span class="fa fa-phone mb-2"></span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;+231-775178202</a></li>
+                      <li><a href="mailto:agrihandy@gmail.com">
+                        <span class="fa fa-envelope mb-2"></span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;agrihandy@gmail.com</a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p>
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                AgriHandy&reg;&nbsp;All rights reserved | Designed by: Colorlib | Powered by Flask
+						</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+<!-- End footer -->
+
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+		  stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none"
+									stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+
+<!-- Start scripts -->
+{% block scripts %}
+        {{ moment.include_moment() }}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js.map"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+     <script src="{{ url_for('static', filename='jscript/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='jscript/jquery-migrate-3.0.1.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='jscript/popper.min.js')}}"></script>
+        <script src="{{ url_for('static', filename='jscript/bootstrap.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='jscript/jquery.easing.1.3.js')}}"></script>
+    <script src="{{ url_for('static', filename='jscript/jquery.waypoints.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='jscript/jquery.stellar.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='jscript/owl.carousel.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='jscript/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='jscript/aos.js')}}"></script>
+    <script src="{{ url_for('static', filename='jscript/jquery.animateNumber.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='jscript/bootstrap-datepicker.js')}}"></script>
+    <script src="{{ url_for('static', filename='jscript/scrollax.min.js')}}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="{{ url_for('static', filename='jscript/google-map.js')}}"></script>
+    <script src="{{ url_for('static', filename='jscript/main.js')}}"></script>
+        <!-- Start Google Translate API script -->
+<script type="text/javascript">
+                            function googleTranslateElementInit() {
+                            new google.translate.TranslateElement (
+                            {pageLanguage: 'en'},
+                            'google_translate_element'
+                            );
+                            }
+                        </script>
+
+                        <script type="text/javascript"
+                                src="https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+
+                        </script>
+
+<!-- End Google Translate API script -->
+{% endblock %}
+<!-- End scripts -->
+</body>
+</html>

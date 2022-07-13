@@ -1,0 +1,20 @@
+{% extends 'layout1.html' %}
+
+{% block page_content %}
+<div class="container mt-4">
+    <h1 class="h1 text-center">Frequently Asked Questions</h1><hr>
+    <ol>
+        <li>How can I pay for products on AgriHandy website?</li>
+        <span><p>Answer: It is very simple. Orange Money is being used to pay
+            for products on AgriHandy.</p></span>
+        <li>How long will it take for my goods to be delivered?</li>
+        <span><p>Answer: Depending on the distance, it will take between 3-5
+        business days.</p></span>
+        <li>If I do not have a smartphone, can I still use AgriHandy?</li>
+        <span><p>Answer: AgriHandy has no barriers. You can make use
+        of Orange USSD to transact on AgriHandy? See <a href="{{ url_for('main.ussd')}}">USSD Codes</a></p></span>
+    </ol>
+</div>
+
+
+{% endblock %}

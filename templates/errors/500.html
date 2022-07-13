@@ -1,0 +1,15 @@
+{% extends "layout1.html" %}
+<title>{% block title %} {{ title }} {% endblock %}</title>
+ 
+{% block page_content %} 
+<div class="page-header">
+    <h2 class="h2 text-primary">Internal Server Error</h2>
+    <p>The server encoutered an internal error during connection</p>
+    <p class="text-secondary">Try:</p>
+    <ul>
+        <li class="text-secondary">Reloading the web page</li>
+        <li class="text-secondary">Clearing your browser's cache</li>
+        <li class="text-secondary">Deleting your browser's cookies</li>
+    </ul>
+</div>
+{% endblock %}

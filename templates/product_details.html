@@ -1,0 +1,61 @@
+{% extends "layout1.html" %}
+{% block title%} {{ title }} {% endblock %}
+
+{% block page_content %}
+{% from 'bootstrap4/form.html' import render_form_row, render_field, render_hidden_errors %}
+<div class="container mt-5">
+    
+    <div class="row gx-4">
+        <div class="col-md-4 mb-2 mr-auto col-sm-4">
+            <p class="container h4 p-3 text-center shadow-sm mt-2 rounded">
+                {{ product.product_name }}</p>
+            <img class="mt-3 mb-2 rounded container-fluid img-center border-1 border-end shadow-lg"
+            src="{{ url_for('static', filename='products_imgs/'+product.product_img) }}" height="70%">
+           <p class="container text-center p-2">Posted:
+               <i class="fa fa-calendar"></i>&nbsp;{{ moment(product.date_posted).format('LL') }}&nbsp;-
+               <i class="fa fa-clock"></i>&nbsp;{{ moment(product.date_posted).fromNow().format('LLL') }}
+           </p><p></p>
+        </div>
+
+        <div class="col-md-4 col-sm-5 mt-4 px-4">
+            <h6 class="h6 text-dark"><i class="fa fa-shopping-basket"></i>&nbsp;Available Quantity: 
+                <span class="text-success">{{ product.available_quan }}&nbsp;{{ product.unit_of_measure }}
+               (s)</span></h6><hr>
+            <h6 class="h6 text-dark"><i class="fa fa-calculator"></i>&nbsp;Unit of measure: 
+                <span class="text-success">{{ product.unit_of_measure }}</span></h6><hr>
+            {% if product.discount > 0 %}
+             <h6 class="h6 text-dark"><i class="fa fa-usd"></i>&nbsp;Price per {{ product.unit_of_measure }}:
+                <span class="text-success"><i class="fa fa-money"></i>&nbsp;
+                    <del>${{ product.unit_price }}</del></span>
+                    <span class="single-product-details">
+                        ${{ product.unit_price - (product.unit_price * product.discount/100)  }}
+                    </span><span>({{ product.discount }}%&nbsp;discount)</span>
+             </h6><hr>
+                 {% else %}
+             <h6 class="h6 text-dark"><i class="fa fa-usd"></i>&nbsp;Price per {{ product.unit_of_measure }}:
+                <span class="text-success"><i class="fa fa-money"></i>&nbsp;
+                    ${{ product.unit_price }}
+                </span></h6><hr>
+            <h6 class="h6 text-dark">Discount: <span class="text-success">None</span></h6><hr>
+                 {% endif %}
+            <h6 class="h6 text-dark"><i class="fa fa-map-marker"></i>&nbsp;Product location:
+                <span class="text-success">
+                    {{ product.location }}</span></h6><hr>
+             <h6 class="h6 text-dark"><i class="fa fa-sticky-note-o"></i>&nbsp;Description:
+                 <span class="text-success">{{ product.product_description }}</span></h6>
+
+        </div>
+        <div class="container col-lg-4 col-sm-3 mt-4 px-2">
+             <form action="{{url_for('main.add_to_cart', product_id=product.id)}}" method="POST">
+            {{ form.hidden_tag() }}
+            <strong>{{ render_hidden_errors(form) }}</strong>
+            <strong>{{ render_field(form.quantity, placeholder='Enter Quantity') }}</strong>
+                <p class="small text-danger mb-2">* Purchase quantity cannot be more than available quantity!!
+                ({{ product.available_quan }})</p>
+                 <span class="bg-dark text-white">{{ render_form_row([form.submit_info])}}</span>
+            </form>
+        </div>
+        </div>
+    </div>
+
+{% endblock %}

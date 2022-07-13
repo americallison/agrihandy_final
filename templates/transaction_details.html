@@ -1,0 +1,39 @@
+{% extends "layout1.html" %}
+
+{% block page_content %}
+
+<div class="container mt-4" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="h4">Transaction Details</h4>
+                </div>
+                <div class="card-body">
+                    <h6>Customer's name: <span class="text-success">
+                        <strong>{{ payment.customer_name }}</strong></span></h6>
+                    <h6>Customer's contact: <span class="text-success">
+                       <strong>0{{ payment.contact }}</strong></span></h6>
+                    <h6>Order code: <span class="text-success">
+                        <strong>{{ payment.order_number }}</strong></span></h6>
+                    <h6>Delivery Address: <span class="text-success">
+                        <strong>{{ payment.delivery_address }}</strong></span></h6>
+                    <h6>Receiver's number: <span class="text-success">
+                       <strong>0{{ payment.receiver_orange_mon_num }}</strong></span></h6>
+                    <h6>Payment Amount: <span class="text-success">
+                        <strong>${{ payment.amount }}</strong></span></h6>
+                    <h6>Currency: {{ payment.currency }}</h6>
+                </div>
+                <div class="card-footer">
+                    <p>Thanks for your order. Your products will be delivered soon.</p>
+                     <p>Please store your order code for verification.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+</div>
+
+{% endblock %}

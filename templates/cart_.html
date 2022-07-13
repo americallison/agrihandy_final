@@ -1,0 +1,120 @@
+{% extends "layout1.html" %}
+
+<title>{% block title %} {{ title }} {% endblock %}</title>
+
+{% block page_content %}
+    <!-- Start All Title Box -->
+   <!--<div class="hero-wrap hero-bread" style="background-image: url('static/images/bg_1.jpg');">-->
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	<p class="mt-5 breadcrumbs"><span class="mr-2">
+                <a href="{{ url_for('main.show_products')}}">Market</a></span><span>/
+                &nbsp;My Bag</span></p><hr>
+
+          </div>
+        </div>
+      </div>
+
+    <!-- End All Title Box -->
+<div class="container-fluid mt-4">
+	{% if not cart %}
+	<h5 class="container h5 text-center">Your
+		<i class="fa fa-shopping-bag"></i>&nbsp;bag is empty</h5>
+	<div class="container mt-5 text-center">
+    <button class="btn bg-dark text-center btn-lg text-light rounded">
+		<a class="text-decoration-none p-3 text-light" href="{{ url_for('main.show_products') }}">
+			<i class="fa fa-shopping-basket"></i>&nbsp;Start Buying Now !!</a>
+	</button>
+	</div>
+</div>
+{% else %}
+    <!-- Start Cart  -->
+    <section class="ftco-cart">
+			<div class="container">
+				<div class="row">
+    			<div class="col-md-12 ftco-animate">
+    				<div class="cart-list">
+	    				<table class="table">
+						    <thead class="thead-primary">
+						      <tr class="text-center">
+						        <th>Product Img</th>
+						        <th>Product name</th>
+                                  <th>Quantity</th>
+						        <th>Price</th>
+						        <th>Total</th>
+						        <th>Action</th>
+						      </tr>
+						    </thead>
+							{% for product in cart %}
+						    <tbody>
+						      <tr class="text-center">
+
+						        <td>
+                                        <img class="img-thumbnail" src="{{ url_for('static',
+                                        filename='products_imgs/'+product.product_img) }}" height=100 width=90>
+                                </td>
+
+						        <td class="product-name">
+						        	<h3>{{ product.product_name }}</h3>
+						        </td>
+
+                                  <td class="price">{{ product.quantity }}&nbsp;{{ product.unit_of_measure }}(s)</td>
+
+						        <td class="price">${{ product.unit_price }}</td>
+
+						        <td class="total">${{ product.unit_price * product.quantity }}</td>
+                                    <td>
+					<a class="btn btn-sm btn-danger text-white" href="{{ url_for('main.remove_product',
+					product_id=product.id)}}">
+						<span><i class="shadow-sm fa fa-trash"></i></span>
+					</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </section>
+
+<div class="col-lg-12 mt-3 bg-light text-left cart-wrap ftco-animate">
+    				<div class="cart-total mb-3">
+    					<h3>Cart Totals</h3>
+    					<p class="d-flex">
+    						<span>Subtotal</span>
+    						<span>${{ pre_cost }}0</span>
+    					</p>
+    					<p class="d-flex">
+    						<span>Transportation</span>
+    						<span>$0.00</span>
+    					</p>
+    						{% if discount_ > 0 %}
+                        <p class="d-flex">
+                            <span>Discount</span>
+                        <span> - &nbsp; ${{ discount_ }}</span>
+                        </p>
+                        {% else %}
+                        <p></p>
+                        {% endif %}
+    					<hr>
+    					<p class="d-flex total-price">
+    						<span>Total</span>
+    						<span>${{ total_cost }}0</span>
+    					</p>
+    				</div>
+    {% if not cart %}
+		<p></p>
+		{% else %}
+    <p><a href="{{ url_for('main.make_order')}}" class="btn btn-primary py-3 px-4">Make Order Now</a></p>
+	<hr>
+		{% endif %}
+	</div>
+{% endif %}
+
+
+    <!-- End Cart -->
+
+    {% endblock %}

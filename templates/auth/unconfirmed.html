@@ -1,0 +1,12 @@
+{% extends "layout1.html" %}
+
+{% block page_content %}
+<div class="container">
+    <h4>Greetings {{ current_user.first_name }}</h4>
+    <p>Your account is not yet confirmed</p>
+    <p>You need to confirm your account before you can have full access
+    to the features of AgriHandy website. An email has been sent to you.</p>
+    <p>You can <a href="{{ url_for('auth.resend_confirmation') }}">Click here</a>
+    if you need another confirmation email.</p>
+</div>
+{% endblock %}

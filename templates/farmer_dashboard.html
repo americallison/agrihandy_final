@@ -1,0 +1,42 @@
+{% extends "farmer_layout.html" %}
+{% block title %}Add Products{% endblock %}
+
+
+{% block page_content %}
+{% from 'bootstrap4/form.html' import render_form_row, render_field, render_hidden_errors %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 bg-dark text-light">
+            <nav class="navbar navbar-expand-lg mt-3">
+                <ul type="None">
+                    <li class="mb-2">
+                        <a style="text-decoration:none" class="text-light" href="{{ url_for('main.add_product')}}">
+                            <i class="fa fa-plus me-1 text-info"></i>&nbsp;Add Products</a></li><hr>
+                    <li class="mb-2">
+                        <a style="text-decoration:none" class="text-light" href="#">
+                            <i class="fa fa-eye me-1 text-info"></i>&nbsp;See Orders</a></li><hr>
+                    <li><a style="text-decoration:none" class="text-light"
+                           href="{{ url_for('main.my_products_list', farmer_id=farmer.id)}}">
+                            <i class="fa fa-leaf me-1 text-info"></i>&nbsp;My Products</a></li><hr>
+                </ul>
+            </nav>
+        </div>
+    <div class="col-md-1"></div>
+        <div class="col-md-3">
+
+<!--<div class="shadow-lg p-2 bg-body mt-3 rounded">
+   <strong><h4 class="f4-text text-center">Current Exchange Rate</h4></strong>
+    <p class="text-center text-info">1 USD = 750 LRD</p>
+</div>-->
+        </div>
+            <div class="col-md-3">
+            <div class="shadow-lg p-1 bg-body mt-3 rounded-4">
+                <strong><h4 class="f4-text text-center">Number of products posted:</h4></strong>
+                <h5 class="text-center">{{prod}}</h5>
+            </div>
+            </div>
+</div>
+    <div class="col-md-2"></div>
+</div>
+</div>
+{% endblock %}

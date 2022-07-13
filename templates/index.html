@@ -1,0 +1,971 @@
+{% extends "layout1.html" %}
+{% block title %} {{title}} {% endblock %}
+
+<body>
+{% block page_content %}
+
+<section id="home-section" class="hero">
+		  <div class="home-slider owl-carousel">
+	      <div class="slider-item" style="background-image: url(static/images/bg_1.jpg);">
+	      	<div class="overlay"></div>
+	        <div class="container">
+	          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+	            <div class="col-md-12 ftco-animate text-center">
+	              <h1 class="mb-2">Welcome to AgriHandy</h1>
+	              <h2 class="subheading mb-4">Buy a product from a local farmer today</h2>
+	              <p><a href="{{ url_for('main.show_products')}}"
+									class="btn btn-light p-4">Start Buying Now!</a></p>
+	            </div>
+
+	          </div>
+	        </div>
+	      </div>
+
+	      <div class="slider-item" style="background-image: url(static/images/bg_2.jpg);">
+	      	<div class="overlay"></div>
+	        <div class="container">
+	          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+	            <div class="col-sm-12 ftco-animate text-center">
+	              <h1 class="mb-2">AgriHandy is here for everybody</h1>
+	              <h2 class="subheading mb-4">An efficient market to help Liberian farmers</h2>
+	              <p><a href="{{ url_for('main.show_products')}}"
+						class="btn p-4 btn-light">Start Buying Now!</a></p>
+	            </div>
+
+	          </div>
+	        </div>
+	      </div>
+			  <div class="slider-item" style="background-image: url(static/lettuce.png);">
+	      	<div class="overlay"></div>
+	        <div class="container">
+	          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+	            <div class="col-sm-12 ftco-animate text-center">
+	              <h1 class="mb-2">Improved Agriculture improves lives</h1>
+	              <h2 class="subheading mb-4">Agriculture drives economic growth and development</h2>
+	              <p><a href="{{ url_for('main.show_products')}}"
+						class="btn btn-light p-4">Start Buying Now!</a></p>
+	            </div>
+
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+    </section>
+
+    <section class="ftco-section">
+			<div class="container">
+				<div class="row no-gutters ftco-services">
+          <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+              <div class="icon bg-color-1 active d-flex justify-content-center align-items-center mb-2">
+            		<span class="flaticon-shipped"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Free Delivery</h3>
+                <span>On orders over 60,000 LRD</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+              <div class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
+            		<span class="flaticon-diet"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Fresh Products</h3>
+                <span>Start Eating Healthy</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+              <div class="icon bg-color-3 d-flex justify-content-center align-items-center mb-2">
+            		<span class="flaticon-award"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Superior Quality</h3>
+                <span>Quality Products</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+              <div class="icon bg-color-4 d-flex justify-content-center align-items-center mb-2">
+            		<span class="flaticon-customer-service"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Customer Support</h3>
+                <span>24/7 Support</span>
+              </div>
+            </div>
+          </div>
+        </div>
+			</div>
+		</section>
+
+		<section class="ftco-section ftco-category ftco-no-pt">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="row">
+							<div class="col-md-6 colorder-md-last align-items-stretch d-flex">
+								<div class="category-wrap-2 ftco-animate img align-self-stretch d-flex"
+                                     style="background-image: url(static/images/category.jpg);">
+									<div class="text text-center">
+										<h2>Featured Categories&nbsp;<i class="fa fa-hand-o-right"></i></h2>
+										<p>Protect the health of every home</p>
+										<h4 class="h4"><a href="{{ url_for('main.show_products')}}"
+											  class="btn btn-primary p-3">Start Buying Now!</a></h4>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
+									 style="background-image: url(static/vege.jpg);">
+									<div class="text px-3 py-1">
+										<h2 style="font-family:Dosis" class="mb-0 p-3">
+											<a href="{{ url_for('main.vegetables')}}">
+											Vegetables</a></h2>
+									</div>
+								</div>
+								<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
+							 style="background-image: url(static/carous.png);">
+							<div class="text px-3 py-1">
+								<h2 style="font-family:Dosis" class="mb-0 p-3"><a href="{{ url_for('main.fruits')}}">Fruits</a></h2>
+							</div>
+						</div>
+								<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
+									 style="background-image: url(static/carrot1.jpg);">
+									<div class="text px-3 py-1">
+										<h2 style="font-family:Dosis" class="mb-0 p-3">
+											<a href="{{ url_for('main.tuber_crops')}}">Tuber Crops</a></h2>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
+							 style="background-image: url(static/poultry.png);">
+							<div class="text px-3 py-1">
+								<h2 style="font-family:Dosis" class="mb-0 p-3">
+									<a href="{{ url_for('main.poultry')}}">Poultry</a></h2>
+							</div>
+						</div>
+						<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
+							 style="background-image: url(static/fishery.png);">
+							<div class="text px-3 py-1">
+								<h2 style="font-family:Dosis" class="mb-0 p-3">
+									<a href="{{url_for('main.fishery_all')}}">
+									Fishery</a></h2>
+							</div>
+						</div>
+						<div class="category-wrap ftco-animate img d-flex align-items-end"
+							 style="background-image: url(static/livestock.png);">
+							<div class="text px-3 py-1">
+								<h2 style="font-family:Dosis" class="mb-0 p-3">
+									<a href="{{ ('livestock_ruminant') }}">Livestock/Ruminants</a></h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+<!--<div class="box-add-products">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<div class="offer-box-products">
+						<img class="img-fluid" src="{{ url_for('static' , filename='images/add-img-01.jpg') }}" alt="" />
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<div class="offer-box-products">
+						<img class="img-fluid" src="{{ url_for('static', filename='images/add-img-02.jpg') }}" alt="" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>-->
+
+
+<!--<div class="container-fluid mt-1">
+<div id="carouselExampleDark" class="carousel carousel-light slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true"
+              aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="{{url_for('static', filename='carous.png')}}"
+             class="d-block w-100 rounded" height=400 alt="...">
+        <div class="carousel-caption d-block d-md-block">
+            <p class="display-6 p-4 rounded text-white">Agriculture is the solution to Liberia's development.
+            Buy a local product from a farmer today.</p><hr>
+            <a class="p-3 btn rounded-pill btn-sm bg-light text-dark"
+               href="{{ url_for('main.show_products') }}">
+                Start Buying Now!!</a>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="4000">
+        <img src="{{ url_for('static', filename='carous2.jpg')}}"
+             class="d-block w-100 rounded" height=400 alt="...">
+        <div class="carousel-caption d-block d-md-block">
+          <p class="display-6 p-4 text-white">
+              Discounted sales (up to 10%) are available on AgriHandy. Get healthy at a low cost.</p>
+            <hr>
+            <a class="p-3 rounded-pill btn btn-sm bg-light text-dark" href="{{ url_for('main.show_products') }}">
+                Start Buying Now!!</a>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="4000">
+        <img src="{{url_for('static', filename='pineapple.jpg')}}"
+             class="d-block w-100 rounded" height=400 alt="pineapple">
+        <div class="carousel-caption d-block d-md-block">
+          <p class="display-6 p-4 text-white">Discounted sales are available on AgriHandy. Get healthy at a low cost.</p><hr>
+          <a class="p-3 rounded-pill btn btn-sm bg-light text-dark" href="{{ url_for('main.show_products') }}">
+              Start Buying Now!!</a>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>-->
+
+<!--<h5 class="h5 text-center">Featured Categories</h5>
+<div class="container mt-4">
+<button class="btn btn-lg m-2 p-1 border-bottom p-3 bg-light text-success">
+    <strong><span id='Vegetables' class="display-6 title-all text-center">Vegetables</span></strong></button>
+    {% if category %}
+<div class="row">
+  <div class="col-lg-1">
+  </div>
+  <div class="col-lg-10 col-md-12 col-12"></div>
+  <div class="row gx-3">
+    {% for category in category %}
+    <div class="col-lg-3 col-sm-6 mt-2 col-6 col-md-4 mb-3 text-center rounded card">
+         <img class="container-fluid img-responsive box-img-hover"
+              src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+              width="110" height="130">
+        <h6 class="h6 container mt-3 text-center">{{ category.product_name | title }}</h6>
+        <p class="text-center text-dark">Price per unit:<br> <strong><em>${{ category.unit_price }}</em></strong></p><hr>
+        <a style="background-color:#02c39a" class="btn m-2 btn btn-outline-dark text-decoration-none text-white"
+           href="{{ url_for('main.product_details', product_id=category.Products.id) }}">
+            See Details
+        </a><p></p>
+
+    </div>
+    {% endfor %}
+      <div class="container">
+      <a class="text-info p-2 text-end" href="{{url_for('main.vegetables')}}">View all</a>
+      </div>
+      {% else %}
+      <h5 class="text-danger">No product in this category</h5>
+      {% endif %}
+<div class="col-lg-1"></div>
+</div>
+</div>
+</div>
+
+<div class="container mt-4">
+<button class="btn btn-lg m-2 p-1 border-bottom p-3 bg-light text-success">
+    <strong><span id='fruits' class="display-6 title-all text-center">Fruits</span></strong></button>
+    {% if category_1 %}
+<div class="row">
+  <div class="col-lg-1">
+  </div>
+  <div class="col-lg-10 col-md-12 col-12"></div>
+  <div class="row gx-3">
+    {% for category in category_1 %}
+    <div class="col-lg-3 col-sm-6 mt-2 col-6 col-md-4 mb-3 text-center rounded card">
+         <img class="container-fluid img-responsive box-img-hover"
+              src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+              width="110" height="130">
+        <h6 class="h6 container mt-3 text-center">{{ category.product_name | title }}</h6>
+        <p class="text-center text-dark">Price per unit:<br> <strong><em>${{ category.unit_price }}</em></strong></p><hr>
+        <a style="background-color:#02c39a" class="btn m-2 btn btn-outline-dark text-decoration-none text-white"
+           href="{{ url_for('main.product_details', product_id=category.Products.id) }}">
+            See Details
+        </a><p></p>
+
+    </div>
+    {% endfor %}
+      <div class="container">
+      <a class="text-info p-2 text-end" href="{{url_for('main.vegetables')}}">View all</a>
+      </div>
+      {% else %}
+      <h5 class="text-danger">No product in this category</h5>
+      {% endif %}
+<div class="col-lg-1"></div>
+</div>
+</div>
+</div>
+
+<div class="container mt-4 px-1">
+<button class="btn btn-lg m-2 border-bottom p-3 bg-light text-success">
+    <strong><span class="display-6">Fruits</span></strong></button>
+    {% if category_1 %}
+<div class="row">
+  <div class="col-lg-1"></div>
+  <div class="col-lg-10 col-md-12 col-12"></div>
+  <div class="row gx-2">
+    {% for category in category_1 %}
+    <div class="col-lg-3 col-sm-6 mt-2 col-6 col-md-4 text-center mb-3 rounded shadow-sm">
+         <img class="container img-responsive"
+              src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+              width="100" height="120">
+        <h6 class="h6 container mt-2 text-center">{{ category.product_name | title }}</h6>
+        <hr>
+        <a style="background-color:#02c39a" class="btn m-2 btn btn-outline-dark text-decoration-none text-white"
+           href="{{ url_for('main.product_details', product_id=category.Products.id) }}">
+            See Details
+        </a><p></p>
+    </div>
+    {% endfor %}
+       <a class="text-info p-2 text-end" href="{{url_for('main.fruits')}}">View all</a>
+      {% else %}
+      <h6 class="text-danger">No product in this category</h6>
+      {% endif %}
+<div class="col-lg-1"></div>
+</div>
+</div>
+</div>
+
+<div class="container card mt-4 px-4">
+<button class="btn btn-lg m-2 border-bottom border-5 text-center p-3 bg-light text-success">
+    <strong><span class="display-6">Tuber Crops</span></strong></button>
+    {% if category_2 %}
+<div class="row">
+  <div class="col-lg-1"></div>
+  <div class="col-lg-10 col-md-12 col-12"></div>
+  <div class="row gx-3">
+    {% for category in category_2 %}
+    <div class="col-lg-3 ml-1 col-sm-6 mt-2 col-6 text-center box-img-hover col-md-4 mb-3 rounded shadow-sm">
+         <img class="container img-responsive"
+              src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+              width="100" height="120">
+        <div class="why-text">
+        <h6 class="h6 container mt-2 text-center">{{ category.product_name | title }}</h6>
+        <p class="text-center text-dark">Price per unit:<br> <strong><em>${{ category.unit_price }}</em></strong></p><hr>
+        </div>
+        <a style="background-color:#02c39a" class="btn m-2 btn btn-outline-dark text-decoration-none text-white"
+           href="{{ url_for('main.product_details', product_id=category.Products.id) }}">
+            See Details
+        </a>
+    </div>
+    {% endfor %}
+      <a class="text-info p-2 text-end" href="#">View all</a>
+      {% else %}
+      <h6 class="text-danger">No product in this category</h6>
+      {% endif %}
+<div class="col-lg-1"></div>
+</div>
+</div>
+</div>
+
+
+<div class="container card mt-4 px-4">
+<button class="btn btn-lg m-2 border-bottom border-5 text-center p-3 bg-light text-success">
+    <strong><span class="display-6">Poultry</span></strong></button>
+    {% if category_3 %}
+<div class="row">
+  <div class="col-lg-1">
+  </div>
+  <div class="col-lg-9 col-md-12 col-12"></div>
+  <div class="row gx-3">
+    {% for category in category_3 %}
+    <div class="col-lg-3 ml-1 mt-2 col-sm-6 col-6 col-md-4 mb-3 rounded shadow-sm">
+         <img class="container img-responsive"
+              src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+              width="100" height="120">
+        <h6 class="h6 container mt-2 text-center">{{ category.product_name | title }}</h6>
+        <p class="text-center text-dark">Price per unit: <strong><em>${{ category.unit_price }}</em></strong></p>
+        <<a style="background-color:#02c39a" class="btn m-2 btn btn-outline-dark text-decoration-none text-white"
+           href="{{ url_for('main.product_details', product_id=category.Products.id) }}">
+            See Details
+        </a><p></p>
+    </div>
+    {% endfor %}
+      <a class="text-info p-2 text-end" href="#">View all</a>
+      {% else %}
+      <h6 class="text-danger">No product in this category</h6>
+      {% endif %}
+<div class="col-lg-1"></div>
+</div>
+</div>
+</div>
+
+<div class="container card mt-4 px-4">
+<button class="btn btn-lg m-2 border-bottom border-5 text-center p-3 bg-light text-success">
+    <strong><span class="display-6">Fishery</span></strong></button>
+    {% if category_4 %}
+<div class="row">
+  <div class="col-lg-1"></div>
+  <div class="col-lg-10 col-md-12 col-12"></div>
+  <div class="row gx-3">
+    {% for category in category_4 %}
+    <div class="col-lg-3 ml-1 col-sm-6 mt-2 col-6 col-md-4 mb-3 rounded shadow-sm">
+         <img class="container img-responsive"
+              src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+              width="100" height="120">
+        <h6 class="h6 container mt-2 text-center">{{ category.product_name | title }}</h6>
+        <p class="text-center text-dark">Price per unit: <strong><em>${{ category.unit_price }}</em></strong></p>
+        <a style="background-color:#02c39a" class="btn m-2 btn btn-outline-dark text-decoration-none text-white"
+           href="{{ url_for('main.product_details', product_id=category.Products.id) }}">
+            See Details
+       </a><p></p>
+    </div>
+    {% endfor %}
+      <a class="text-info p-2 text-end" href="#">View all</a>
+      {% else %}
+      <h6 class="text-danger">No product in this category</h6>
+      {% endif %}
+<div class="col-lg-1"></div>
+</div>
+</div>
+</div>
+
+
+<div class="container card mt-4 px-4">
+<button class="btn btn-lg m-2 border-bottom border-5 text-center p-3 bg-light text-success">
+    <strong><span class="display-6">Livestock/Ruminants</span></strong></button>
+    {% if category_5 %}
+<div class="row">
+  <div class="col-lg-1"></div>
+  <div class="col-lg-10 col-md-12 col-12"></div>
+  <div class="row gx-3">
+    {% for category in category_5 %}
+    <div class="col-lg-3 ml-1 col-sm-6 col-6 mt-2 col-md-4 mb-3 rounded shadow-sm">
+         <img class="container img-responsive"
+              src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+              width="100" height="120">
+        <h6 class="h6 container mt-2 text-center">{{ category.product_name | title }}</h6>
+        <p class="text-center text-dark">Price per unit: <strong><em>${{ category.unit_price }}</em></strong></p>
+        <p></p><hr>
+        <a style="background-color:#02c39a" class="btn m-2 btn btn-outline-dark text-decoration-none text-white"
+           href="{{ url_for('main.product_details', product_id=category.Products.id) }}">
+            See Details
+        </a><p></p>
+    </div>
+    {% endfor %}
+      <a class="text-info p-2 text-end" href="#">View all</a>
+      {% else %}
+      <h6 class="text-danger">No product in this category</h6>
+      {% endif %}
+<div class="col-lg-1"></div>
+</div>
+</div>
+</div>
+-->
+
+    	<div class="container">
+				<div class="row justify-content-center mb-3 pb-3">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+          	<span class="subheading">Featured Products</span>
+            <h2 class="mb-4">Our Products</h2>
+          </div>
+        </div>
+    	</div>
+    	<div class="container">
+			 <div class="col-lg-1"></div>
+                <div class="col-lg-10 col-md-12 col-12"></div>
+    		<div class="row">
+				{% for category in category %}
+    			<div class="col-md-6 col-6 col-lg-3 ftco-animate">
+    				<div class="product">
+    					<a href="{{ url_for('main.product_details', product_id=category.Products.id)}}"
+						   class="img-prod">
+							<img src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+								 width=280 height=180 alt="agriproduct">
+    						<span class="status">
+                                    {% if category.discount > 0 %}
+                                    <small class="sale">{{ category.discount }}%&nbsp;discount</small>
+                                    {% else %}
+
+                                    {% endif %}
+							</span>
+    						<div class="overlay"></div>
+    					</a>
+    					<div class="text py-3 pb-4 px-3 text-center">
+    						<h3><a href="#"></a>{{category.product_name}}</h3>
+									<span class="text-success">${{ category.unit_price }}</span>
+	    					<div class="d-flex px-3">
+	    						<div class="m-auto d-flex">
+	    							<a href="{{ url_for('main.product_details', product_id=category.Products.id)}}"
+									   class="d-flex text-secondary text-center">
+										<span><small><i class="fa fa-eye"></i>&nbsp;See details</small></span>
+	    							</a>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+			{% endfor %}
+				  </div>
+        </div>
+<div class="container">
+			 <div class="col-lg-1"></div>
+                <div class="col-lg-10 col-md-12 col-12"></div>
+    		<div class="row">
+				{% for category in category_1 %}
+    			<div class="col-md-6 col-6 col-lg-3 ftco-animate">
+    				<div class="product">
+    					<a href="{{ url_for('main.product_details', product_id=category.Products.id)}}"
+						   class="img-prod">
+							<img src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+								 width=280 height=180 alt="agriproduct">
+    						<span class="status">
+                                    {% if category.discount > 0 %}
+                                    <small class="sale">{{ category.discount }}%&nbsp;discount</small>
+                                    {% else %}
+
+                                    {% endif %}
+							</span>
+    						<div class="overlay"></div>
+    					</a>
+    					<div class="text py-3 pb-4 px-3 text-center">
+    						<h3><a href="#"></a>{{category.product_name}}</h3>
+									<span class="text-success">${{ category.unit_price }}</span>
+	    					<div class="d-flex px-3">
+	    						<div class="m-auto d-flex">
+	    							<a href="{{ url_for('main.product_details', product_id=category.Products.id)}}"
+									   class="d-flex text-secondary text-center">
+										<span><small><i class="fa fa-eye"></i>&nbsp;See details</small></span>
+	    							</a>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+			{% endfor %}
+				  </div>
+        </div>
+
+<div class="container">
+			 <div class="col-lg-1"></div>
+                <div class="col-lg-10 col-md-12 col-12"></div>
+    		<div class="row">
+				{% for category in category_2 %}
+    			<div class="col-md-6 col-6 col-lg-3 ftco-animate">
+    				<div class="product">
+    					<a href="{{ url_for('main.product_details', product_id=category.Products.id)}}"
+						   class="img-prod">
+							<img src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+								 width=280 height=180 alt="agriproduct">
+    						<span class="status">
+                                    {% if category.discount > 0 %}
+                                    <small class="sale">{{ category.discount }}%&nbsp;discount</small>
+                                    {% else %}
+
+                                    {% endif %}
+							</span>
+    						<div class="overlay"></div>
+    					</a>
+    					<div class="text py-3 pb-4 px-3 text-center">
+    						<h3><a href="#"></a>{{category.product_name}}</h3>
+									<span class="text-success">${{ category.unit_price }}</span>
+	    					<div class="d-flex px-3">
+	    						<div class="m-auto d-flex">
+	    							<a href="{{ url_for('main.product_details', product_id=category.Products.id)}}"
+									   class="d-flex text-secondary text-center">
+										<span><small><i class="fa fa-eye"></i>&nbsp;See details</small></span>
+	    							</a>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+			{% endfor %}
+				  </div>
+        </div>
+
+<div class="container">
+			 <div class="col-lg-1"></div>
+                <div class="col-lg-10 col-md-12 col-12"></div>
+    		<div class="row">
+				{% for category in category_3 %}
+    			<div class="col-md-6 col-6 col-lg-3 ftco-animate">
+    				<div class="product">
+    					<a href="{{ url_for('main.product_details', product_id=category.Products.id)}}"
+						   class="img-prod">
+							<img src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+								 width=280 height=180 alt="agriproduct">
+    						<span class="status">
+                                    {% if category.discount > 0 %}
+                                    <small class="sale">{{ category.discount }}%&nbsp;discount</small>
+                                    {% else %}
+
+                                    {% endif %}
+							</span>
+    						<div class="overlay"></div>
+    					</a>
+    					<div class="text py-3 pb-4 px-3 text-center">
+    						<h3><a href="#"></a>{{category.product_name}}</h3>
+									<span class="text-success">${{ category.unit_price }}</span>
+	    					<div class="d-flex px-3">
+	    						<div class="m-auto d-flex">
+	    							<a href="{{ url_for('main.product_details', product_id=category.Products.id)}}"
+									   class="d-flex text-secondary text-center">
+										<span><small><i class="fa fa-eye"></i>&nbsp;See details</small></span>
+	    							</a>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+			{% endfor %}
+				  </div>
+        </div>
+<div class="container">
+			 <div class="col-lg-1"></div>
+                <div class="col-lg-10 col-md-12 col-12"></div>
+    		<div class="row">
+				{% for category in category_4 %}
+    			<div class="col-md-6 col-6 col-lg-3 ftco-animate">
+    				<div class="product">
+    					<a href="{{ url_for('main.product_details', product_id=category.Products.id)}}"
+						   class="img-prod">
+							<img src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+								 width=280 height=180 alt="agriproduct">
+    						<span class="status">
+                                    {% if category.discount > 0 %}
+                                    <small class="sale">{{ category.discount }}%&nbsp;discount</small>
+                                    {% else %}
+
+                                    {% endif %}
+							</span>
+    						<div class="overlay"></div>
+    					</a>
+    					<div class="text py-3 pb-4 px-3 text-center">
+    						<h3><a href="#"></a>{{category.product_name}}</h3>
+									<span class="text-success">${{ category.unit_price }}</span>
+	    					<div class="d-flex px-3">
+	    						<div class="m-auto d-flex">
+	    							<a href="{{ url_for('main.product_details', product_id=category.Products.id)}}"
+									   class="d-flex text-secondary text-center">
+										<span><small><i class="fa fa-eye"></i>&nbsp;See details</small></span>
+	    							</a>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+			{% endfor %}
+				  </div>
+        </div>
+<div class="container">
+			 <div class="col-lg-1"></div>
+                <div class="col-lg-10 col-md-12 col-12"></div>
+    		<div class="row">
+				{% for category in category_5 %}
+    			<div class="col-md-6 col-6 col-lg-3 ftco-animate">
+    				<div class="product">
+    					<a href="{{ url_for('main.product_details', product_id=category.Products.id)}}"
+						   class="img-prod">
+							<img src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+								 width=280 height=180 alt="agriproduct">
+    						<span class="status">
+                                    {% if category.discount > 0 %}
+                                    <small class="sale">{{ category.discount }}%&nbsp;discount</small>
+                                    {% else %}
+
+                                    {% endif %}
+							</span>
+    						<div class="overlay"></div>
+    					</a>
+    					<div class="text py-3 pb-4 px-3 text-center">
+    						<h3><a href="#"></a>{{category.product_name}}</h3>
+									<span class="text-success">${{ category.unit_price }}</span>
+	    					<div class="d-flex px-3">
+	    						<div class="m-auto d-flex">
+	    							<a href="{{ url_for('main.product_details', product_id=category.Products.id)}}"
+									   class="d-flex text-secondary text-center">
+										<span><small><i class="fa fa-eye"></i>&nbsp;More details</small></span>
+	    							</a>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+			{% endfor %}
+				  </div>
+        </div><hr>
+<div class="hero-wrap hero-bread" style="background-image: url('static/product_more.jpg');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	<p class="breadcrumbs"><span class="text-light mr-2">
+                Looking for more?</span></p><hr>
+			  <h1 class="mb-0 bread"><a class="p-4 btn btn-lg bg-dark text-white" href="{{ url_for('main.show_products')}}">
+				  <i class="fa fa-eye"></i>
+				  &nbsp;See All Products&nbsp;<i class="fa fa-eye"></i>
+				  </a></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<hr>
+
+    <!-- Start Products  -->
+   <!-- <div class="products-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-all text-center">
+                        <h1>Featured Categories</h1>
+                        <p>View products by categories below</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="special-menu text-center">
+                        <div class="button-group filter-button-group">
+                            <button class="active" data-filter="*">All</button>
+                            <button data-filter=".vegetables">Vegetables</button>
+                            <button data-filter=".fruits">Fruits</button>
+                            <button data-filter=".tuber-crops">Tuber Crops</button>
+                             <button data-filter=".fishery">Fishery</button>
+                            <button data-filter=".poultry">Poultry</button>
+                            <button data-filter=".livestock-ruminants">Livestock/Ruminants</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="container mt-4 px-4">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10 col-md-12 col-12"></div>
+                <div class="row special-list">
+                    {% for category in category %}
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 special-grid vegetables">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    {% if category.discount > 0 %}
+                                    <small class="sale">{{ category.discount }}&nbsp;%&nbsp;discount</small>
+                                    {% else %}
+                                    <p></p>
+                                    {% endif %}
+                                </div>
+                                <img src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+                                     width=250 height=180 alt="Image">
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li>
+                                            <a href="{{ url_for('main.product_details',
+                                            product_id=category.Products.id)}}"
+                                               data-placement="right">
+                                                <i class="fas fa-eye"></i>&nbsp;View Details</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                <h4>{{category.product_name}}</h4>
+                                <h5> ${{category.unit_price}}</h5>
+                            </div>
+
+                        </div>
+                    </div>
+                         {% endfor %}
+                </div>
+            </div>
+
+
+         <div class="container mt-2 px-4">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10 col-md-12 col-12"></div>
+                <div class="row special-list">
+                    {% for category in category_1 %}
+                    <div class="col-lg-3 col-md-6 col-6 special-grid fruits">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    {% if category.discount > 0 %}
+                                    <small class="sale">{{ category.discount }}&nbsp;%&nbsp;discount</small>
+                                    {% else %}
+                                    <p></p>
+                                    {% endif %}
+                                </div>
+                                <img src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+                                     width=250 height=180 alt="Image">
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="#"
+                                               data-placement="right">
+                                        <i class="fas fa-eye"></i>&nbsp;View Details</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                <h4>{{category.product_name}}</h4>
+                                <h5> ${{category.unit_price}}</h5>
+                            </div>
+
+                        </div>
+                    </div>
+                         {% endfor %}
+                </div>
+         </div>
+
+
+   <div class="container mt-2 px-4">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10 col-md-12 col-12"></div>
+                <div class="row special-list">
+                    {% for category in category_2 %}
+                    <div class="col-lg-3 col-md-6 col-6 special-grid tuber-crops">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    {% if category.discount > 0 %}
+                                    <small class="sale">{{ category.discount }}&nbsp;%&nbsp;discount</small>
+                                    {% else %}
+                                    <p></p>
+                                    {% endif %}
+                                </div>
+                                <img src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+                                     width=250 height=180 alt="Image">
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li><a href="#"
+                                               data-placement="right">
+                                            <i class="fas fa-eye"></i>&nbsp;View Details</a></li>
+                                    </ul>
+                                    <a class="cart" href="#">Add to Cart</a>
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                <h4>{{category.product_name}}</h4>
+                                <h5> ${{category.unit_price}}</h5>
+                            </div>
+
+                        </div>
+                    </div>
+                         {% endfor %}
+                </div>
+   </div>
+
+<div class="container mt-4 px-4">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10 col-md-12 col-12"></div>
+                <div class="row special-list">
+                    {% for category in category_3 %}
+                    <div class="col-lg-3 col-md-6 col-6 special-grid poultry">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    {% if category.discount > 0 %}
+                                    <small class="sale">{{ category.discount }}&nbsp;%&nbsp;discount</small>
+                                    {% else %}
+                                    <p></p>
+                                    {% endif %}
+                                </div>
+                                <img src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+                                     width=250 height=180 alt="Image">
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li>
+                                            <a href="{{ url_for('main.product_details',
+                                            product_id=category.Products.id)}}" data-toggle="tooltip"
+                                               data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        <li><a href="#" data-toggle="tooltip"
+                                               data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    <a class="cart" href="#">Add to Cart</a>
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                <h4>{{category.product_name}}</h4>
+                                <h5> ${{category.unit_price}}</h5>
+                            </div>
+
+                        </div>
+                    </div>
+                         {% endfor %}
+                </div>
+</div>
+
+    <div class="container mt-4 px-4">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10 col-md-12 col-12"></div>
+                <div class="row special-list">
+                    {% for category in category_4 %}
+                    <div class="col-lg-3 col-md-6 col-6 special-grid fishery">
+                        <div class="products-single fix">
+                            <div class="box-img-hover">
+                                <div class="type-lb">
+                                    {% if category.discount > 0 %}
+                                    <small class="sale">{{ category.discount }}&nbsp;%&nbsp;discount</small>
+                                    {% else %}
+                                    <p></p>
+                                    {% endif %}
+                                </div>
+                                <img src="{{ url_for('static', filename='products_imgs/'+category.product_img) }}"
+                                     width=250 height=180 alt="Image">
+                                <div class="mask-icon">
+                                    <ul>
+                                        <li>
+                                            <a href="{{ url_for('main.product_details',
+                                            product_id=category.Products.id)}}" data-toggle="tooltip"
+                                               data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        <li><a href="#" data-toggle="tooltip"
+                                               data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                    </ul>
+                                    <a class="cart" href="#">Add to Cart</a>
+                                </div>
+                            </div>
+                            <div class="why-text">
+                                <h4>{{category.product_name}}</h4>
+                                <h5> ${{category.unit_price}}</h5>
+                            </div>
+
+                        </div>
+                    </div>
+                         {% endfor %}
+                </div>
+            </div>
+
+-->
+<!-- Potential Partners -->
+		<section class="ftco-section ftco-partner">
+    	<div class="container">
+			<h3 class="text-center mb-4 p-3">Potential Partners</h3>
+    		<div class="row">
+    			<div class="col-sm ftco-animate">
+    				<a href="https://www.orange.com.lr/" class="partner">
+                        <img src="static/Orange-Liberia_logo.png" class="img-fluid" alt="orange_logo"></a>
+    			</div>
+    			<div class="col-sm ftco-animate">
+    				<a href="https://www.moa.gov.lr/" class="partner">
+                        <img src="static/moa.png" class="img-fluid" alt="moa_logo"></a>
+    			</div>
+    			<div class="col-sm ftco-animate">
+    				<a href="https://www.cari.gov.lr/" class="partner">
+                        <img src="static/cari.png" class="img-fluid" alt="cari_logo"></a>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+<!-- End potential partners -->
+  {% endblock %}
+</body>

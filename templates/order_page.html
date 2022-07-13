@@ -1,0 +1,127 @@
+{% extends "layout1.html" %}
+{% block title %}Add Products{% endblock %}
+
+
+{% block page_content %}
+
+{% block page_content %}
+    <!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Cart</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Market</a></li>
+                        <li class="breadcrumb-item active">My Bag</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Title Box -->
+<div class="container-fluid mt-4">
+	{% if not product %}
+	<h5 class="container h5 text-center">You do not have any orders</h5>
+	<div class="container mt-5 text-center">
+    <button class="btn bg-dark text-center btn-lg text-light rounded">
+		<a class="text-decoration-none text-light" href="{{ url_for('main.show_products') }}">
+			<i class="fa fa-shopping-basket"></i>&nbsp;Start Buying Now !!</a>
+	</button>
+	</div>
+</div>
+{% else %}
+    <!-- Start Order  -->
+    <div class="cart-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-main table-responsive table-striped table-sm">
+                        <table class="table">
+                            <thead class="text-center">
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Order Quantity</th>
+                                    <th>Subtotal</th>
+                                    <th>Seller Contact</th>
+                                </tr>
+                            </thead>
+                            {% for product in product %}
+                            <tbody>
+                                <tr class="text-center">
+                                    <td class="name-pr">
+                                        <a href="#">
+									{{product.product_name}}
+								</a>
+                                    </td>
+                                    <td class="name-pr">
+                                        <a href="#">
+									{{product.quantity}}&nbsp;{{product.unit_of_measure}}
+								</a>
+                                    </td>
+                                    <td class="price-pr">
+                                        <p>
+                                            ${{ product.unit_price }}</p>
+                                    </td>
+
+                                    <td class="remove-pr">
+                                        <button class="btn text-center btn-sm btn-danger">
+					<a class="text-white" href="{{ url_for('main.remove_product', product_id=product.id)}}">
+						<span><i class="shadow-lg fa fa-trash"></i></span>
+					</a>
+				    </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-5">
+                <div class="col-lg-8 col-sm-12"></div>
+                <div class="col-lg-4 col-sm-12">
+                    <div class="order-box">
+                        <h3>Order summary</h3>
+                        <hr class="my-1">
+                        <div class="d-flex">
+                            <h4>SubTotal</h4>
+                            <div class="ml-auto font-weight-bold"> ${{ pre_cost }}0 </div>
+                        </div>
+                        {% if discount_ > 0 %}
+                        <div class="d-flex">
+                            <h4>Discount</h4>
+                            <div class="ml-auto text-underline font-weight-bold">
+                                - &nbsp; ${{ discount_ }}</div>
+                        </div>
+                        {% else %}
+                        <p></p>
+                        {% endif %}
+                        <div class="d-flex">
+                            <h4>Actual Cost</h4>
+                            <div class="ml-auto font-weight-bold"> ${{total_cost}}0 </div>
+                        </div>
+                        <div class="d-flex">
+                            <h4>Delivery Cost</h4>
+                            <div class="ml-auto text-danger font-weight-bold">Will be added based on distance</div>
+                        </div>
+                    </div>
+                        {% endif %}
+                    <div class="container text-end mt-3">
+{% if not product %}
+		<p></p>
+		{% else %}
+    <button class="btn bg-dark"><a class="text-light"
+								   href="{{ url_for('main.make_order') }}">
+		<i class="fa fa-money"></i>&nbsp;Make Payment Now</a>
+	</button><hr>
+		{% endif %}
+	</div>
+</div>
+                </div>
+            </div>
+        </div>
+
+
+
+{% endblock %}

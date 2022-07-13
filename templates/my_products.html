@@ -1,0 +1,81 @@
+{% extends "farmer_layout.html" %}
+{% block title %}Add Products{% endblock %}
+
+
+{% block page_content %}
+
+  <!-- Start All Title Box -->
+   <div class="hero-wrap hero-bread"
+		style="background-image: url('{{ url_for('static', filename='auth_farmer_/bg_21.jpg')}}');;">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	<p class="breadcrumbs"><span class="mr-2">
+                <a href="{{ url_for('main.show_products')}}">Farmer</a></span><span>/
+                &nbsp;My Products</span></p>
+            <h1 class="mb-0 bread">My Products</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End All Title Box -->
+
+{% if not my_product %}
+<div class="container mt-5">
+<h5 class="display-6 text-danger text-center">You have not added any products yet!!</h5>
+    <div class="container text-center mt-3">
+    <button class="btn bg-dark"><a class="p-4 text-light" href="{{ url_for('main.add_product') }}">
+		<i class="fa fa-plus"></i>&nbsp;Add Product Now!</a>
+	</button>
+	</div>
+</div>
+{% else %}
+<section class="ftco-section ftco-cart">
+			<div class="container">
+				<div class="row">
+    			<div class="col-md-12 ftco-animate">
+    				<div class="cart-list">
+	    				<table class="table"><caption>{{ prod }}&nbsp;products</caption>
+						    <thead class="thead-primary">
+						      <tr class="text-center">
+						        <th>Product Img</th>
+						        <th>Product name</th>
+                                  <th>Price</th>
+						        <th>Available Quantity</th>
+						        <th>Action</th>
+						      </tr>
+						    </thead>
+							{% for product in my_product %}
+						    <tbody>
+						      <tr class="text-center">
+
+						        <td>
+                                        <img class="img-thumbnail" src="{{ url_for('static',
+                                        filename='products_imgs/'+product.product_img) }}" height=100 width=90>
+                                </td>
+
+						        <td>{{product.product_name}}</td>
+				<td>${{product.unit_price}}</td>
+				<td>{{product.available_quan}}</td>
+				<td>
+					<a class="text-white btn text-center btn-sm btn-info p-1"
+					   href="{{ url_for('main.edit_product', product_id=product.id) }}">
+						<span><i class="shadow-lg fa fa-edit"></i></span>
+					</a>
+					<a class="text-light btn text-center btn-sm btn-danger p-1"
+					   href="{{ url_for('main.remove_from_list', product_id=product.id) }}">
+						<span><i class="shadow-lg fa fa-trash"></i></span></a>
+                </td>
+                                </tr>
+                            </tbody>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </section>
+{% endif %}
+
+
+{% endblock %}
