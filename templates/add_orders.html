@@ -1,0 +1,109 @@
+{% extends "layout1.html" %}
+{% block title%}Make Order{% endblock %}
+
+{% block page_content %}
+
+       <!--<div class="hero-wrap hero-bread" style="background-image: url('static/images/bg_2.jpg');">-->
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	<p class="breadcrumbs mt-5 mb-3"><span class="mr-2">
+                <a href="{{ url_for('main.my_cart')}}">My Bag</a></span><span>/
+                &nbsp;Orders</span></p><hr>
+          </div>
+        </div>
+      </div>
+
+<div class="container-fluid mt-4">
+	{% if not cart %}
+	<h5 class="container h5 text-center">You do not have any orders</h5>
+	<div class="container mt-5 text-center">
+    <button class="btn bg-dark text-center btn-lg text-light rounded">
+		<a class="text-decoration-none text-light" href="{{ url_for('main.show_products') }}">
+			<i class="fa fa-shopping-basket"></i>&nbsp;Start Buying Now !!</a>
+	</button>
+	</div>
+</div>
+{% else %}
+    <!-- Start Order  -->
+      <section class="ftco-cart">
+			<div class="container">
+				<div class="row">
+    			<div class="col-md-12 ftco-animate">
+    				<div class="cart-list">
+	    				<table class="table">
+						    <thead class="thead-primary">
+						      <tr class="text-center">
+						        <th>Product Img</th>
+						        <th>Product name</th>
+                                  <th>Quantity</th>
+						      </tr>
+						    </thead>
+							{% for product in cart %}
+						    <tbody>
+						      <tr class="text-center">
+
+						        <td>
+                                        <img class="img-thumbnail" src="{{ url_for('static',
+                                        filename='products_imgs/'+product.product_img) }}" height=100 width=90>
+                                </td>
+
+						        <td class="product-name">
+						        	<h3>{{ product.product_name }}</h3>
+						        </td>
+
+                                  <td class="price">{{ product.quantity }}&nbsp;{{ product.unit_of_measure }}(s)</td>
+
+                                </tr>
+                            </tbody>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+            </div>
+	  </section>
+
+
+<div class="container mt-2 bg-light text-left cart-wrap ftco-animate">
+	<div class="row">
+				<div class="col-md-6">
+			{% from 'bootstrap4/form.html' import render_form_row, render_field, render_hidden_errors %}
+<div class="shadow-lg p-3 bg-muted mt-3 rounded">
+<form action="{{ url_for('main.make_order') }}"
+      method="POST" enctype="multipart/form-data">
+    <h4 class="h4 text-center mb-4"><i class="fa fa-info-circle"></i>&nbsp;Order Information</h4>
+    {{ form.hidden_tag() }}
+    <strong>{{ render_hidden_errors(form) }}</strong>
+    <strong>{{ render_field(form.full_name) }}</strong>
+    <strong>{{ render_field(form.delivery_address) }}</strong>
+    <strong>{{ render_field(form.contact) }}</strong>
+	<strong>{{ render_field(form.comments) }}</strong>
+    {{ render_field(form.submit_order, class="btn btn-dark text-light p-3 mr-2") }}
+	<span>
+		{% if not cart %}
+		{% else %}
+						<a class="btn btn-danger ml-2 p-3"
+								   href="{{ url_for('main.my_cart') }}">
+		&nbsp;Cancel Order</a>
+		{% endif %}
+
+	</span>
+</form>
+		</div>
+</div>
+		<div class="col-md-6">
+    				<div class="cart-total mb-3">
+    					<h3>Order Totals</h3>
+    					<hr>
+    					<p class="d-flex total-price">
+    						<span>Total</span>
+    						<span>${{ total_cost }}0</span>
+    					</p>
+    				</div>
+		</div>
+
+	</div>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,244 @@
+{% extends 'layout1.html' %}
+
+
+{% block page_content %}
+    <div class="hero-wrap hero-bread" style="background-image: url('static/images/bg_1.jpg');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="{{ url_for('main.index')}}">Home</a></span>
+                <span>About Us</span></p>
+            <h1 class="mb-0 bread">About AgriHandy</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
+			<div class="container">
+				<div class="row">
+					<img src="static/agrihandy_pic.png">
+                    <div class="col-md-1"></div>
+					<div class="col-md-6 py-5 wrap-about pb-md-5 ftco-animate">
+	          <div class="heading-section-bold mb-4 mt-md-5">
+	          	<div class="ml-md-1">
+		            <h2 class="mb-4">Welcome to AgriHandy</h2>
+	            </div>
+	          </div>
+	          <div class="pb-md-5 p-3">
+	          	<p>AgriHandy is here to help farmers increase their revenue and improve their
+                            livelihoods from timely marketing and sales of their agricultural produce.</p>
+							<p>Start selling with AgriHandy today and experience some fast sales turnover
+                            of your products. Agriculture is the entry to Liberia's development. We are here
+                                to do this together.</p>
+							<p><a href="{{ url_for('main.show_products')}}" class="btn btn-primary">Start Buying Now!</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+      <div class="container py-4">
+        <div class="row d-flex justify-content-center py-5">
+          <div class="col-md-6">
+          	<h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
+          	<span>Get e-mail updates about our latest shops and special offers</span>
+          </div>
+          <div class="col-md-6 d-flex align-items-center">
+            <form action="#" class="subscribe-form">
+              <div class="form-group d-flex">
+                <input type="text" class="form-control" placeholder="Enter email address">
+                <input type="submit" value="Subscribe" class="submit px-3">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+		
+		<section class="ftco-section ftco-counter img" id="section-counter"
+                 style="background-image: url(static/images/bg_3.jpg);">
+    	<div class="container">
+    		<div class="row justify-content-center py-5">
+    			<div class="col-md-10">
+		    		<div class="row">
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number" data-number="10000">0</strong>
+		                <span>Satisfied Customers</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number" data-number="1">0</strong>
+		                <span>Branch</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number" data-number="100">0</strong>
+		                <span>% Impact</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number" data-number="100">0</strong>
+		                <span>% Customer support</span>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+	        </div>
+        </div>
+    	</div>
+    </section>
+		
+		<section class="ftco-section testimony-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate text-center">
+          	<span class="subheading">Testimony</span>
+            <h2 class="mb-1">Our satisfied customer says:</h2>
+            <p>AgiHandy is a highly efficient agricultural online market.
+            My goods were delivered and I received just what I ordered. Go AgriHandy.</p>
+              <h2 class="mb-1">Our satisfied farmer says:</h2>
+            <p>Thanks to AgriHandy for providing me a platform to market my pepper.
+            I now make 2 times more in sales since AgriHandy arrived.</p>
+          </div>
+        </div>
+        <div class="row ftco-animate">
+          <div class="col-md-12">
+            <div class="carousel-testimony owl-carousel">
+              <div class="item">
+                <div class="testimony-wrap p-4 pb-5">
+                  <div class="text text-center">
+                      <p class="name">Americ Allison</p>
+                      <span class="position">CEO, Founder & Lead Developer</span><hr>
+                    <p class="mb-5 pl-4 line">Americ Allison is the CEO and Founder of
+                    AgriHandy. He holds a Bachelor of Science degree in Plant and Soil
+                    Science from Cuttington University and is currently pursuing
+                    an online Masters degree in Agricultural Insects and Pest Control at Jilin
+                    University in China. He obtained a certificate in Computer Hardware from
+                    Starz University.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap p-4 pb-5">
+                  <div class="text text-center">
+                      <p class="name">Karl L. Johnson</p>
+                    <span class="position">UI Designer & Technical Advisor</span><hr>
+                    <p class="mb-5 pl-4 line">Mr. Karl L. Johnson is an ace at designs and technicality.
+                    He currently serves as the front-man for all of AgriHandy's work regarding design
+                    and technicality. He is pursuing his Bachelors Degree in Economics from
+                    the United Methodist University (UMU) in Liberia.</p>
+
+                  </div>
+                </div>
+              </div>
+                <div class="item">
+                <div class="testimony-wrap p-4 pb-5">
+                  <div class="text text-center">
+                      <p class="name">Aruna J. Kpobay</p>
+                    <span class="position">Junior Developer</span><hr>
+                    <p class="mb-5 pl-4 line">Aruna J. Kpobay is a junior developer at AgriHandy. He supports
+                    the Lead Developer in executing programming code to put AgriHandy on the map. He is a
+                    graduate of the Monrovia Vocational Training Center (MVTC) where he studied Computer
+                    Science. He puts in lot of hours so that AgriHandy's online presence can be highly felt.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap p-4 pb-5">
+                  <div class="text text-center">
+                      <p class="name">Bendu L. Bonar</p>
+                    <span class="position">Animal Specialist & Logistic Manager</span><hr>
+                    <p class="mb-5 pl-4 line">Bendu L. Bonar is an animal specialist with
+                    a Bachelor of Science degree in Animal Science from Cuttington University.
+                    She is the Animal Specialist and Logistic Manager at AgriHandy. All of
+                    AgriHandy's transportation and delivery rests on her shoulders. She also
+                    test animals to check their health statuses before delivery.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap p-4 pb-5">
+
+                  <div class="text text-center">
+                      <p class="name">Nyumah Fallah</p>
+                    <span class="position">Crop Specialist &Marketing Advisor</span><hr>
+                    <p class="mb-5 pl-4 line">Mr. Nyumah Fallah serves as Marketing
+                    Advisor to AgriHandy. Mr. Fallah holds a Bachelor of Science degree in
+                    Plant and Soil Science and Masters Degree in Agricultural Marketing. He is
+                    currently studying for his PhD in Fujian, China in Crop Cultivation and
+                        Farming Systems.</p>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section bg-light">
+			<div class="container">
+				<div class="row no-gutters ftco-services">
+          <div class="col-lg-3 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+              <div class="icon bg-color-1 active d-flex justify-content-center align-items-center mb-2">
+            		<span class="flaticon-shipped"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Free Delivery</h3>
+                <span>On order over $60000.00</span>
+              </div>
+            </div>      
+          </div>
+          <div class="col-lg-3 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+              <div class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
+            		<span class="flaticon-diet"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Fresh Products</h3>
+                <span>Start Eating Healthy</span>
+              </div>
+            </div>    
+          </div>
+          <div class="col-lg-3 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+              <div class="icon bg-color-3 d-flex justify-content-center align-items-center mb-2">
+            		<span class="flaticon-award"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Superior Quality</h3>
+                <span>Quality Products</span>
+              </div>
+            </div>      
+          </div>
+          <div class="col-lg-3 text-center d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services mb-md-0 mb-4">
+              <div class="icon bg-color-4 d-flex justify-content-center align-items-center mb-2">
+            		<span class="flaticon-customer-service"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Customer Support</h3>
+                <span>24/7 Support</span>
+              </div>
+            </div>      
+          </div>
+        </div>
+			</div>
+		</section>
+
+{% endblock %}}

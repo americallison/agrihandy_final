@@ -1,0 +1,37 @@
+{% extends "layout1.html" %}
+{% block title %}Account{% endblock %}
+{% block page_content %}
+
+ <div class="hero-wrap hero-bread" style="background-image: url('static/images/bg_1.jpg');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>/My Account</span></p>
+            <h1 class="mb-0 bread">My Account</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <div class="container mt-4 text-center">
+          <h2>Account Details</h2><hr>
+          <h4>Full Name:&nbsp;
+              {{ current_user.first_name }}&nbsp;{{ current_user.last_name }}</h4>
+
+                <h4>Email:&nbsp;
+                    <a class="text-info" href="mailto:">{{ current_user.email }}</a></h4>
+
+          <h4>Username:&nbsp;{{ current_user.user_name }}</h4>
+
+          <h4>Account created on:&nbsp;
+              {{ moment(current_user.timestamp).format('LLL') }}</h4>
+
+
+          <hr>
+             <a class="btn btn bg-dark text-light"
+                href="{{ url_for('auth.edit_profile') }}">Edit Account
+             </a>
+
+      </div><hr>
+{% endblock page_content %}

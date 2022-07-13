@@ -1,0 +1,15 @@
+
+
+{% block page_content %}
+<div class="container">
+    <h5>Dear {{ user.first_name }},</h5>
+    <p>AgriHandy family welcomes you!</p>
+    <p>You will need to confirm your account to have full access to the AgriHandy website.</p>
+    <p>Please click on this link to confirm your account:</p>
+    <p><a href="{{ url_for('auth.confirm', token=token, _external=True) }}" class="text-primary">
+       Confirmation Link</a></p>
+    <p class="small">Sincerely,<br>
+    AgriHandy Family,</p>
+    <p class="text-danger small">* No-reply</p>
+</div>
+{% endblock %}

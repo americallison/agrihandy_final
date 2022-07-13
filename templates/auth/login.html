@@ -1,0 +1,39 @@
+{% extends "layout1.html" %}
+{% block title%}Login{% endblock %}
+
+
+{% from 'bootstrap4/form.html' import render_form %}
+
+{% block page_content %}
+{% from 'bootstrap4/form.html' import render_field, render_hidden_errors%}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+    <div class="shadow-lg p-5 bg-body mt-5 rounded">
+    <form action="{{ url_for('auth.login') }}" method="POST" enctype="multipart/form-data">
+        <h4 class="h4 text-center card-header mb-4"><i class="fa fa-sign-in"></i>&nbsp;Login</h4>
+    <span>Don't have an account?
+        <strong><a class="text-primary mb-4" href="{{ url_for('auth.register') }}">
+            <i class="fa fa-user"></i>&nbsp;Sign Up</a>
+        </strong>
+    </span><hr>
+        {{ form.hidden_tag() }}
+        <strong>{{ render_hidden_errors(form) }}</strong>
+        <strong>{{ render_field(form.user_name, placeholder="Username") }}</strong>
+        <strong>{{ render_field(form.password, placeholder="Password") }}</strong>
+        <strong>{{ render_field(form.remember_me) }}</strong>
+        <strong>{{ render_field(form.submit_info, class="btn hvr-hover btn-lg text-light mt-2 mb-3 bg-dark") }}</strong>
+    </form>
+
+    <p><strong><a class="text-primary" href="{{ url_for('main.forgot_password') }}">
+           Forgot username or password?</a></strong>
+    </p>
+
+    </div></div>
+    <div class="col-md-3"></div>
+</div>
+</div>
+
+
+{% endblock %}
